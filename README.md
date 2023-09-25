@@ -156,7 +156,7 @@ longer contracts.
 3. Promote Additional Services:<br>
 • Educate customers on the benefits of signing up for Online Security and Tech Support, as these services are essential for a seamless experience. Highlight the added value and peace of mind they provide.
 4. Increase Sales Targets:<br>
-• Increase the sales targets for One-Year and Two-Year contracts by 5% each to actively promote these options.
+• Increase the sales targets for One-Year and Two-Year contracts by 5% each to actively promote these options.<br>
 • Encourage yearly automatic payments with a 5% annual increase to simplify billing for customers and improve revenue predictability
 
 ---
