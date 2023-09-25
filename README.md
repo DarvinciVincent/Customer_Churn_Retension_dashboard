@@ -28,7 +28,7 @@ The purpose of this task is to:
 
 Dataset used for this task was presented by [Pwc](https://www.pwc.ch/en/careers-with-pwc/students/virtual-case-experience.html) and customer churn Retention dataset:
 
-Dataset: [Customer Churn Retention](https://github.com/yogeshkasar778/PWC_task_2---Customer_Churn_Retension_dashboard/blob/main/02%20Churn-Dataset.xlsx)
+Dataset: [Customer Churn Retention](https://github.com/DarvinciVincent/Customer_Churn_Retension_dashboard/blob/main/02%20Churn-Dataset.xlsx)
 
 ## Data Preparation:
 
@@ -62,34 +62,77 @@ And then dataset was cleaned and transformed, it was ready to the data modeled.
 
 Measures used in  all visualization are:
 
-- Average MonthlyCharges = `AVERAGE('01 Churn-Dataset'[MonthlyCharges])`
+- Churn Rate = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[Churn]), '01 Churn-Dataset'[Churn] = "Yes"),
+    CALCULATE(COUNT('01 Churn-Dataset'[Churn])),
+    0)'
 
-- Average TotalCharges = `AVERAGE('01 Churn-Dataset'[TotalCharges])`
+- Dependent % = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[Dependents]), '01 Churn-Dataset'[Dependents]="Yes",'01 Churn-Dataset'[Churn]="Yes"),
+    CALCULATE(COUNT('01 Churn-Dataset'[Dependents]),'01 Churn-Dataset'[Churn]="Yes"),
+    0)
 
-- churn count = `CALCULATE(COUNT('01 Churn-Dataset'[Churn]), ALLSELECTED('01 Churn-Dataset'[Churn]),'01 Churn-Dataset'[Churn] = "Yes")`
+- Churned Device Protection % = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[DeviceProtection]),'01 Churn-Dataset'[DeviceProtection] = "Yes", '01 Churn-Dataset'[Churn] = "Yes"), 
+    CALCULATE(count('01 Churn-Dataset'[DeviceProtection]), '01 Churn-Dataset'[Churn] = "Yes"),
+    0)'
+  
+- Churned Online Backup % = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[OnlineBackup]), '01 Churn-Dataset'[Churn] = "Yes", '01 Churn-Dataset'[OnlineBackup] = "Yes"),
+    CALCULATE(COUNT('01 Churn-Dataset'[OnlineBackup]), '01 Churn-Dataset'[Churn] = "Yes"),
+    0)'
 
-- churn rate % = `DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[Churn]), '01 Churn-Dataset'[Churn] = "yes" ), COUNT('01 Churn-Dataset'[Churn]), 0)`
+- Churned Online Security % = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[OnlineSecurity]), '01 Churn-Dataset'[Churn] = "Yes", '01 Churn-Dataset'[OnlineSecurity] = "Yes"),
+    CALCULATE(COUNT('01 Churn-Dataset'[OnlineSecurity]), '01 Churn-Dataset'[Churn] = "Yes"),
+    0'
 
-- Dependent in % = `DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[Dependents]), '01 Churn-Dataset'[Dependents]="Yes",'01 Churn-Dataset'[Churn]="Yes"), CALCULATE(COUNT('01 Churn-Dataset'[Dependents]),'01 Churn-Dataset'[Churn]="Yes"), 0)`
+- Churned Phone Service % = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[PhoneService]), '01 Churn-Dataset'[PhoneService] = "Yes", '01 Churn-Dataset'[Churn] = "Yes"),
+    CALCULATE(COUNT('01 Churn-Dataset'[PhoneService]), '01 Churn-Dataset'[Churn] = "Yes"),
+    0)'
 
-- Device protection in % = `DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[DeviceProtection]), '01 Churn-Dataset'[DeviceProtection] ="Yes", '01 Churn-Dataset'[Churn]="Yes"),CALCULATE(COUNT('01 Churn-Dataset'[DeviceProtection]),'01 Churn-Dataset'[Churn]="Yes"),0)`
+- Churned Streaming Movies % = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[StreamingMovies]), '01 Churn-Dataset'[Churn] = "Yes", '01 Churn-Dataset'[StreamingMovies] = "Yes"),
+    CALCULATE(COUNT('01 Churn-Dataset'[StreamingMovies]), '01 Churn-Dataset'[Churn] = "Yes"),
+    0)'
 
-- Online backup in % = `DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[OnlineBackup]), '01 Churn-Dataset'[OnlineBackup] ="Yes", '01 Churn-Dataset'[Churn]="Yes"),CALCULATE(COUNT('01 Churn-Dataset'[OnlineBackup]),'01 Churn-Dataset'[Churn]="Yes"),0)`
+- Churned StreamingTV % = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[StreamingTV]), '01 Churn-Dataset'[Churn] = "Yes", '01 Churn-Dataset'[StreamingTV] = "Yes"),
+    CALCULATE(COUNT('01 Churn-Dataset'[StreamingTV]), '01 Churn-Dataset'[Churn] = "Yes"),
+    0)'
+  
+- Churned Tech Support % = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[TechSupport]), '01 Churn-Dataset'[Churn] = "Yes", '01 Churn-Dataset'[TechSupport] = "Yes"),
+    CALCULATE(COUNT('01 Churn-Dataset'[TechSupport]), '01 Churn-Dataset'[Churn] = "Yes"),
+    0)'
 
-- Online security in % =`DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[OnlineSecurity]), '01 Churn-Dataset'[OnlineSecurity] ="Yes", '01 Churn-Dataset'[Churn]="Yes"),CALCULATE(COUNT('01 Churn-Dataset'[OnlineSecurity]),'01 Churn-Dataset'[Churn]="Yes"),0)`
+- Partner % = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[Partner]), '01 Churn-Dataset'[Partner]="Yes",'01 Churn-Dataset'[Churn]="Yes"),
+    CALCULATE(COUNT('01 Churn-Dataset'[Partner]),'01 Churn-Dataset'[Churn]="Yes"),
+    0)'
 
-- Partner in % = `DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[Partner]),'01 Churn-Dataset'[Partner]="Yes",'01 Churn-Dataset'[Churn]="Yes"), CALCULATE(COUNT('01 Churn-Dataset'[Partner]), '01 Churn-Dataset'[Churn]="Yes"), 0)`
+- Senior Citizen % = 
+'DIVIDE(
+    CALCULATE(COUNT('01 Churn-Dataset'[SeniorCitizen]), '01 Churn-Dataset'[SeniorCitizen]= 1,'01 Churn-Dataset'[Churn]="Yes"),
+    CALCULATE(COUNT('01 Churn-Dataset'[SeniorCitizen]),'01 Churn-Dataset'[Churn]="Yes"),
+    0)'
 
-- Phone service in % =`DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[PhoneService]), '01 Churn-Dataset'[PhoneService] ="Yes", '01 Churn-Dataset'[Churn]="Yes"),CALCULATE(COUNT('01 Churn-Dataset'[PhoneService]),'01 Churn-Dataset'[Churn]="Yes"),0)`
+- Revenue = 'CALCULATE(SUM('01 Churn-Dataset'[TotalCharges]), '01 Churn-Dataset'[Churn] = "No")'
 
-- SenioCitizen in % = `DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[SeniorCitizen]),'01 Churn-Dataset'[SeniorCitizen]=1,'01 Churn-Dataset'[Churn]="Yes"), CALCULATE(COUNT('01 Churn-Dataset'[SeniorCitizen]),'01 Churn-Dataset'[Churn]="Yes"), 0)`
+- TotalLost = 'sum('01 Churn-Dataset'[TotalCharges]) - [Revenue]'
 
-- Streaming Movies in % =`DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[StreamingMovies]), '01 Churn-Dataset'[StreamingMovies] ="Yes", '01 Churn-Dataset'[Churn]="Yes"),CALCULATE(COUNT('01 Churn-Dataset'[StreamingMovies]),'01 Churn-Dataset'[Churn]="Yes"),0)`
-
-- Streaming TV in % =`DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[StreamingTV]), '01 Churn-Dataset'[StreamingTV] ="Yes", '01 Churn-Dataset'[Churn]="Yes"),CALCULATE(COUNT('01 Churn-Dataset'[StreamingTV]),'01 Churn-Dataset'[Churn]="Yes"),0)`
-
-- Tech Support in % =`DIVIDE(CALCULATE(COUNT('01 Churn-Dataset'[TechSupport]), '01 Churn-Dataset'[TechSupport] ="Yes", '01 Churn-Dataset'[Churn]="Yes"),CALCULATE(COUNT('01 Churn-Dataset'[TechSupport]),'01 Churn-Dataset'[Churn]="Yes"),0)`
-
+- Y_Churn = 'CALCULATE(COUNT('01 Churn-Dataset'[Churn]), '01 Churn-Dataset'[Churn] = "Yes")'
 ## Insights:
 1. Contract Length and Customer Tenure:
 • Customers on Two-Year contracts tend to have longer relationships with the company, while a significant number of customers on Month-to-Month contracts are relatively
