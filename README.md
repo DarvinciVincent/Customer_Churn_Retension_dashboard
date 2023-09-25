@@ -58,7 +58,7 @@ And then dataset was cleaned and transformed, it was ready to the data modeled.
 
 ## Data Analysis (DAX):
 
-Measures used in  all visualization are:
+Measures used in all visualization are:
 
 - Churn Rate = 
 'DIVIDE(
