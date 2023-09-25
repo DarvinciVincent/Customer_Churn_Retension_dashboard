@@ -12,7 +12,7 @@
 - [Insights](https://github.com/DarvinciVincent/Customer_Churn_Retension_dashboard/edit/main/README.md#insights)
 - [Recommendation](https://github.com/DarvinciVincent/Customer_Churn_Retension_dashboard/edit/main/README.md#recommendation)
 
-## Problem Statement :
+## Problem Statement:
 
 The purpose of this task is to:
 
@@ -24,7 +24,7 @@ The purpose of this task is to:
 - Customer account information: how long as a customer, contract, payment method, paperless billing, monthly charges, total charges and number of tickets opened in the categories administrative and technical
 - Demographic info about customers – gender, age range, and if they have partners and dependents
 
-## Datasource :
+## Datasource:
 
 Dataset used for this task was presented by [Pwc](https://www.pwc.ch/en/careers-with-pwc/students/virtual-case-experience.html) and customer churn Retention dataset:
 
@@ -131,6 +131,7 @@ Measures used in  all visualization are:
 - TotalLost = 'sum('01 Churn-Dataset'[TotalCharges]) - [Revenue]'
 
 - Y_Churn = 'CALCULATE(COUNT('01 Churn-Dataset'[Churn]), '01 Churn-Dataset'[Churn] = "Yes")'
+  
 ## Insights:
 1. Contract Length and Customer Tenure:<br>
 • Customers on Two-Year contracts tend to have longer relationships with the company, while a significant number of customers on Month-to-Month contracts are relatively
