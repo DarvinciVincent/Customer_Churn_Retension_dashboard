@@ -40,8 +40,6 @@ Customer Churn dataset is give table named:
 
 Data Cleaning for the dataset was done in the power query editor as follows:
 
-- Replaced  the value is `SeniorCitizen` N coverted No and Y converted Yes
-
 In the new table, one additional conditional columns were added using M-formula:
 
 - loyalty = `SWITCH(TRUE(),'01 Churn-Dataset'[tenure]<=12,"< 1 year",'01 Churn-Dataset'[tenure]<=24,"< 2 years",'01 Churn-Dataset'[tenure]<=36,"< 3 years",'01 Churn-Dataset'[tenure]<=48,"< 4 years", '01 Churn-Dataset'[tenure]<=60,"< 5 years",'01 Churn-Dataset'[tenure]<=72,"< 6 years")`
@@ -134,32 +132,30 @@ Measures used in  all visualization are:
 
 - Y_Churn = 'CALCULATE(COUNT('01 Churn-Dataset'[Churn]), '01 Churn-Dataset'[Churn] = "Yes")'
 ## Insights:
-1. Contract Length and Customer Tenure:
+1. Contract Length and Customer Tenure:<br>
 • Customers on Two-Year contracts tend to have longer relationships with the company, while a significant number of customers on Month-to-Month contracts are relatively
 new joiners.
-2. Risk of Churn Among Recent Month-to-Month Customers:
+2. Risk of Churn Among Recent Month-to-Month Customers:<br>
 • The analysis suggests that the company is at risk of losing recently joined customers, especially those on Month-to-Month contracts.
-3. Churn Statistics:
-• A total of 7,043 customers are at risk of churn, resulting in a churn rate of 27%.
-• The yearly charges amount to $16.06 million, while monthly charges sum up to $456.12 thousand.
-4. Ticket Support:
+3. Churn Statistics:<br>
+• A total of 7,043 customers are at risk of churn, resulting in a churn rate of 27%.<br>
+• The yearly charges amount to $16.06 million, while monthly charges sum up to $456.12 thousand.<br>
+4. Ticket Support:<br>
 • There were 2,955 technical support tickets and 3,632 administrative support tickets opened, indicating a notable level of customer support interaction.
-5. Lack of Additional Services Among Churned Customers:
+5. Lack of Additional Services Among Churned Customers:<br>
 • Most of the churned customers did not sign up for Online Security, Tech Support, or Phone Services, highlighting potential areas for improvement in service adoption.
-6. Fiber Optic Services and Churn:
+6. Fiber Optic Services and Churn:<br>
 • A significant portion (42%) of the churned customers were using Fiber Optic as their Internet Service, suggesting a potential issue with this service offering.
 
 ## Recommendation:
-1. Encourage Longer Contracts:
+1. Encourage Longer Contracts:<br>
 • Consider incentivizing customers to subscribe to One-Year and Two-Year contracts, as this can lead to better customer retention. Emphasize the cost savings associated with
 longer contracts.
-2. Discounts for Month-to-Month Customers:
-• Offer discounts or promotions to customers on Month-to-Month contracts to encourage them to commit to longer contract periods. This can help reduce churn among this
-segment.
-3. Promote Additional Services:
-• Educate customers on the benefits of signing up for Online Security and Tech Support, as these services are essential for a seamless experience. Highlight the added value
-and peace of mind they provide.
-4. Increase Sales Targets:
+2. Discounts for Month-to-Month Customers:<br>
+• Offer discounts or promotions to customers on Month-to-Month contracts to encourage them to commit to longer contract periods. This can help reduce churn among this segment.
+3. Promote Additional Services:<br>
+• Educate customers on the benefits of signing up for Online Security and Tech Support, as these services are essential for a seamless experience. Highlight the added value and peace of mind they provide.
+4. Increase Sales Targets:<br>
 • Increase the sales targets for One-Year and Two-Year contracts by 5% each to actively promote these options.
 • Encourage yearly automatic payments with a 5% annual increase to simplify billing for customers and improve revenue predictability
 
